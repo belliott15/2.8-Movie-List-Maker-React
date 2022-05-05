@@ -8,12 +8,12 @@ function App() {
 
   //Tracking state
   const [allMovies, setAllMovies] = useState([]);
-  const [filteredMovies, setFilteredMovies] = useState();
-  const [movieTitle, setMovieTitle] = useState();
-  const [movieFormColor, setMovieFormColor] = useState();
-  const [movieFormYear, setMovieFormYear] = useState();
-  const [movieFormDirector, setMovieFormDirector] = useState();
-  const [query, setQuery] = useState();
+  const [filteredMovies, setFilteredMovies] = useState('');
+  const [movieTitle, setMovieTitle] = useState('');
+  const [movieFormColor, setMovieFormColor] = useState('#2a9d8f');
+  const [movieFormYear, setMovieFormYear] = useState('');
+  const [movieFormDirector, setMovieFormDirector] = useState('');
+  const [query, setQuery] = useState('');
   
 
   //submit function to push new movies to allMovies
@@ -30,7 +30,7 @@ function App() {
     setAllMovies([...allMovies, newMovie]);
     //clear all inputs
     setMovieTitle('');
-    setMovieFormColor('');
+    setMovieFormColor('#2a9d8f');
     setMovieFormYear('');
     setMovieFormDirector('');
   }
@@ -59,8 +59,8 @@ function App() {
       <main>
         <div className='top-half'>
           <MovieForm 
-            setMovieTitle={setMovieTitle}
             movieTitle={movieTitle}
+            setMovieTitle={setMovieTitle}
             movieFormYear={movieFormYear}
             setMovieFormYear={setMovieFormYear}
             movieFormDirector={movieFormDirector}

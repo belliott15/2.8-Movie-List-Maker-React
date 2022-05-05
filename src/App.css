@@ -4,10 +4,13 @@ body{
   --color3: #e9c46a;
   --color4: #f4a261;
   --color5: #e76f51;
+  background-color: #264653;
 }
 
 .App {
   text-align: center;
+  background-color: var(--color1);
+  color: white;
 }
 
 .App-header {
@@ -53,4 +56,9 @@ body{
 
 .number-input{
   -webkit-appearance: none;
+}
+
+input{
+  border-radius: 5px;
+  font-size: 1rem;
 }
