@@ -76,7 +76,7 @@ function App() {
     setAllMovies([...allMovies]);
   }
   // use Effect to only activate when state changes
-  useEffect(() => handleMovieFilter(query), [query, allMovies]);
+  useEffect(() => handleMovieFilter(query), [query, allMovies]); //eslint-disable-line
   //created filter function so search by movie title
   function handleMovieFilter(userInput){
     const searchedMovies = allMovies.filter(movie => movie.title.toLowerCase().includes(userInput.toLowerCase()));
