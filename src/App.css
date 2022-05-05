@@ -23,7 +23,7 @@ body{
 
 .top-half{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -41,11 +41,16 @@ body{
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  border: 2px black solid;
   width: 100%;
   margin: 10px;
 }
 .movie-card{
   width: 150px;
   height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.number-input{
+  -webkit-appearance: none;
 }

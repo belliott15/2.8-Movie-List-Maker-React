@@ -16,9 +16,9 @@ export default function MovieForm({
     <div>
       <form onSubmit={submitMovies}>
         <h1>Title</h1>
-        <input value={movieTitle} onChange={(e) => setMovieTitle(e.target.value)}/>
+        <input value={movieTitle} onChange={(e) => setMovieTitle(e.target.value)} required />
         <h1>Year</h1>
-        <input value={movieFormYear} onChange={(e) => setMovieFormYear(e.target.value)}/>
+        <input className='number-input' value={movieFormYear} onChange={(e) => setMovieFormYear(e.target.value)} type='Number' min='1900' max='2022'/>
         <h1>Director</h1>
         <input value={movieFormDirector} onChange={(e) => setMovieFormDirector(e.target.value)}/>
         <h1>Background Color</h1>

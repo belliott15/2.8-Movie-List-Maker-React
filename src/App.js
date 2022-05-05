@@ -43,11 +43,12 @@ function App() {
     setAllMovies([...allMovies]);
   }
   // use Effect to only activate when state changes
-  // useEffect(handleMovieFilter(query), [query, allMovies]);
+  useEffect(() => handleMovieFilter(query), [query, allMovies]);
   //created filter function so search by movie title
   function handleMovieFilter(userInput){
-    allMovies.filter((movie) => movie.title.toLowerCase().includes(userInput.toLowerCase));
-    
+    const searchedMovies = allMovies.filter(movie => movie.title.toLowerCase().includes(userInput.toLowerCase()));
+
+    setFilteredMovies([...searchedMovies]);
   }
   
   return (
@@ -77,8 +78,8 @@ function App() {
         </div>
         <section className='bottom-half'>
           Search <input value={query} onChange={(e) => setQuery(e.target.value)}/>
-          <div className='movie-list'>
-            <MovieList allMovies={allMovies} handleDeleteMovie={() => handleDeleteMovie()}/>
+          <div>
+            <MovieList allMovies={query ? [...filteredMovies] : [...allMovies]} handleDeleteMovie={() => handleDeleteMovie()}/>
           </div>
           
         </section>
