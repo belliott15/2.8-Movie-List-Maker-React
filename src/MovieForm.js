@@ -22,7 +22,7 @@ export default function MovieForm({
         <h1>Director</h1>
         <input value={movieFormDirector} onChange={(e) => setMovieFormDirector(e.target.value)}/>
         <h1>Background Color</h1>
-        <select onChange={(e) => setMovieFormColor(e.target.value)}>
+        <select value={movieFormColor} onChange={(e) => setMovieFormColor(e.target.value)}>
           <option value='crimson'>Red</option>
           <option value='#2a9d8f'>Blue</option>
           <option value='#e9c46a'>Yellow</option>

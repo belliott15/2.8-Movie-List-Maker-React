@@ -43,10 +43,11 @@ function App() {
     setAllMovies([...allMovies]);
   }
   // use Effect to only activate when state changes
-  // useEffect();
+  // useEffect(handleMovieFilter(query), [query, allMovies]);
   //created filter function so search by movie title
-  function handleMovieFilter(){
-
+  function handleMovieFilter(userInput){
+    allMovies.filter((movie) => movie.title.toLowerCase().includes(userInput.toLowerCase));
+    
   }
   
   return (
@@ -74,10 +75,13 @@ function App() {
             color: movieFormColor
           }} handleDeleteMovie={() => handleDeleteMovie()}/>
         </div>
-        <div className='bottom-half'>
-          <input />
-          <MovieList allMovies={allMovies}/>
-        </div>
+        <section className='bottom-half'>
+          Search <input value={query} onChange={(e) => setQuery(e.target.value)}/>
+          <div className='movie-list'>
+            <MovieList allMovies={allMovies} handleDeleteMovie={() => handleDeleteMovie()}/>
+          </div>
+          
+        </section>
       </main>
     </div>
   );

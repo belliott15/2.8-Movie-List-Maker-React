@@ -27,6 +27,25 @@ body{
   align-items: center;
 }
 
+.bottom-half{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.movie-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 2px black solid;
+  width: 100%;
+  margin: 10px;
+}
 .movie-card{
-  border-radius: 1px solid black;
+  width: 150px;
+  height: 200px;
 }
