@@ -10,7 +10,6 @@ body{
   text-align: center;
 }
 
-
 .App-header {
   background-color: var(--color2);
   height: 5rem;
@@ -20,4 +19,14 @@ body{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.top-half{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-card{
+  border-radius: 1px solid black;
 }

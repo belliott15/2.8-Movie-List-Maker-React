@@ -1,16 +1,39 @@
 import { useState, useEffect } from 'react';
+import MovieForm from './MovieForm';
+import MovieList from './MovieList';
+import Movie from './Movie';
 import './App.css';
 
 function App() {
 
   //Tracking state
-  const [allMovies, setAllMovies] = useState();
+  const [allMovies, setAllMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState();
   const [movieTitle, setMovieTitle] = useState();
   const [movieFormColor, setMovieFormColor] = useState();
   const [movieFormYear, setMovieFormYear] = useState();
   const [movieFormDirector, setMovieFormDirector] = useState();
+  const [query, setQuery] = useState();
   
+
+  //submit function to push new movies to allMovies
+  function submitMovies(e){
+    e.preventDefault();
+
+    const newMovie = {
+      title: movieTitle,
+      year: movieFormYear,
+      director: movieFormDirector,
+      color: movieFormColor
+    };
+
+    setAllMovies([...allMovies, newMovie]);
+    //clear all inputs
+    setMovieTitle('');
+    setMovieFormColor('');
+    setMovieFormYear('');
+    setMovieFormDirector('');
+  }
   //create delete function to delete movies on click
   function handleDeleteMovie(title){
     const movieIndex = allMovies.findIndex((movie) => movie.title === title);
@@ -32,35 +55,29 @@ function App() {
         Movie Maker
       </header>
       <main>
-        <form>
-          <h1>Title</h1>
+        <div className='top-half'>
+          <MovieForm 
+            setMovieTitle={setMovieTitle}
+            movieTitle={movieTitle}
+            movieFormYear={movieFormYear}
+            setMovieFormYear={setMovieFormYear}
+            movieFormDirector={movieFormDirector}
+            setMovieFormDirector={setMovieFormDirector}
+            movieFormColor={movieFormColor}
+            setMovieFormColor={setMovieFormColor}
+            submitMovies={(e) => submitMovies(e)}
+          />
+          <Movie movie={{
+            title: movieTitle,
+            year: movieFormYear,
+            director: movieFormDirector,
+            color: movieFormColor
+          }} handleDeleteMovie={() => handleDeleteMovie()}/>
+        </div>
+        <div className='bottom-half'>
           <input />
-          <h1>Year</h1>
-          <input />
-          <h1>Director</h1>
-          <input />
-          <h1>Background Color</h1>
-          <select>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-            <option value='crimson'>Red</option>
-          </select>
-          <button>Submit</button>
-        </form>
-        <h2>Title</h2>
-        <h3>year</h3>
-        <h5>Directed By:</h5>
-
-        <h2>Title</h2>
-        <h3>year</h3>
-        <h5>Directed By:</h5>
+          <MovieList allMovies={allMovies}/>
+        </div>
       </main>
     </div>
   );
