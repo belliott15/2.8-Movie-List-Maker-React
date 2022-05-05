@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Header from './Header';
 import MovieForm from './MovieForm';
 import MovieList from './MovieList';
 import Movie from './Movie';
@@ -53,9 +54,7 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        Movie Maker
-      </header>
+      <Header text={'Movie Maker'}/>
       <main>
         <div className='top-half'>
           <MovieForm 

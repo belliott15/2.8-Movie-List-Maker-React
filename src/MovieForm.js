@@ -34,7 +34,7 @@ export default function MovieForm({
           <option value='crimson'>Red</option>
           <option value='crimson'>Red</option>
         </select>
-        <button>Submit</button>
+        <button>Submit</button> 
       </form>
     </div>
   );
