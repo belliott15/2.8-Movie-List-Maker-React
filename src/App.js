@@ -12,8 +12,12 @@ function App() {
   const [movieFormDirector, setMovieFormDirector] = useState();
   
   //create delete function to delete movies on click
-  function handleDeleteMovie(){
+  function handleDeleteMovie(title){
+    const movieIndex = allMovies.findIndex((movie) => movie.title === title);
+    //splice to pull specific item out then reset array
+    allMovies.splice(movieIndex, 1);
 
+    setAllMovies([...allMovies]);
   }
   // use Effect to only activate when state changes
   // useEffect();
@@ -53,7 +57,7 @@ function App() {
         <h2>Title</h2>
         <h3>year</h3>
         <h5>Directed By:</h5>
-        
+
         <h2>Title</h2>
         <h3>year</h3>
         <h5>Directed By:</h5>
