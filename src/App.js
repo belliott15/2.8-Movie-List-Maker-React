@@ -48,7 +48,7 @@ function App() {
         <section className='bottom-half'>
           Search <input value={query} onChange={(e) => setQuery(e.target.value)}/>
           <div>
-            <MovieList allMovies={query ? [...filteredMovies] : [...allMovies]} handleDeleteMovie={() => handleDeleteMovie()}/>
+            <MovieList allMovies={query ? [...filteredMovies] : [...allMovies]} handleDeleteMovie={handleDeleteMovie}/>
           </div>
           
         </section>
